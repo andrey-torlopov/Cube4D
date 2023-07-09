@@ -1,0 +1,27 @@
+from point import Point
+
+def initialize_points() -> list[Point]:
+    points = []
+    
+    points.append(Point(-1, -1, 1, 1))
+    points.append(Point(1, -1, 1, 1))
+    points.append(Point(1, 1, 1, 1))
+    points.append(Point(-1, 1, 1, 1))
+    points.append(Point(-1, -1, -1, 1))
+    points.append(Point(1, -1, -1, 1))
+    points.append(Point(1, 1, -1, 1))
+    points.append(Point(-1, 1, -1, 1))
+
+    points.append(Point(-1, -1, 1, -1))
+    points.append(Point(1, -1, 1, -1))
+    points.append(Point(1, 1, 1, -1))
+    points.append(Point(-1, 1, 1, -1))
+    points.append(Point(-1, -1, -1, -1))
+    points.append(Point(1, -1, -1, -1))
+    points.append(Point(1, 1, -1, -1))
+    points.append(Point(-1, 1, -1, -1))
+
+    return points
+
+def initialize_projected_points(points: list[Point]) -> list[list[int]]:
+    return [[n, n] for n in range(len(points))]
