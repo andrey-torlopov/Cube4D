@@ -1,8 +1,8 @@
 
 class ScreenConfig:
-    def __init__(self, width: int = 800, height: int = 640,
+    def __init__(self, width: int = 1020, height: int = 768,
                  title: str = "4D cube", rotate_speed: float = 0.02, background: tuple[int, int, int] = (255, 255, 255),
-                 scale: float = 50, angle_x: float = 0, angle_y: float = 0, angle_z: float = 0, fps: int = 60,
+                 scale: float = 200, angle_x: float = 0, angle_y: float = 0, angle_z: float = 0, fps: int = 60,
                  distance: int = 2) -> None:
         '''
         Screen configuration

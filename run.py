@@ -7,7 +7,6 @@ from points_draw import connect_points
 from points_engine import (
     matrix_to_point,
     matmul_point,
-    matmul_m,
     make_rotation_x,
     make_rotation_y,
     make_rotation_z,
@@ -34,6 +33,10 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
+
+    # screen_config.angle_x += 0.01
+    # screen_config.angle_y += 0.01
+    # screen_config.angle_z += 0.01
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_r]:
