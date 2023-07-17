@@ -25,6 +25,10 @@ screen_config.angle_x = 10
 points = initialize_points()
 projected_points = initialize_projected_points(points)
 
+is_animating = True
+
+is_grawing = True
+default_scale = screen_config.scale
 while True:
     clock.tick(screen_config.fps)
     screen.fill(screen_config.black)
@@ -34,25 +38,45 @@ while True:
             pygame.quit()
             exit()
 
-    # screen_config.angle_x += 0.01
-    # screen_config.angle_y += 0.01
-    # screen_config.angle_z += 0.01
+    if is_animating:
+        if is_grawing:
+            screen_config.inc_scale()
+        else:
+            screen_config.dec_scale()
+
+        if screen_config.scale == screen_config.max_scale:
+            is_grawing = False
+        elif screen_config.scale == screen_config.min_scale:
+            is_grawing = True
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_r]:
         screen_config.refresh()
-    if keys[pygame.K_a]:
-        screen_config.inc_angle_y()
+        is_animating = True
     if keys[pygame.K_d]:
+        screen_config.inc_angle_y()
+        is_animating = False
+    if keys[pygame.K_a]:
         screen_config.dec_angle_y()
+        is_animating = False
     if keys[pygame.K_w]:
         screen_config.inc_angle_x()
+        is_animating = False
     if keys[pygame.K_s]:
         screen_config.dec_angle_x()
+        is_animating = False
     if keys[pygame.K_q]:
         screen_config.dec_angle_z()
+        is_animating = False
     if keys[pygame.K_e]:
         screen_config.inc_angle_z()
+        is_animating = False
+    if keys[pygame.K_z]:
+        screen_config.inc_scale()
+        is_animating = False
+    if keys[pygame.K_x]:
+        screen_config.dec_scale()
+        is_animating = False
 
     # Drawining
     i = 0
