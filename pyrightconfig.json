@@ -1,0 +1,16 @@
+{
+  "venvPath": ".",
+  "venv": ".venv",
+  "language_overrides": {
+    "Python": {
+      "format_on_save": {
+        "external": {
+          "command": "flake8",
+          "arguments": [
+            "-"
+          ]
+        }
+      }
+    }
+  }
+}
