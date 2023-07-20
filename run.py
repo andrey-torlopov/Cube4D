@@ -78,9 +78,17 @@ while True:
         i += 1
         pygame.draw.circle(screen, screen_config.stroke_color, xy_points, 5)
 
-    for p in range(4):
-        connect_points(screen, screen_config.stroke_color, p, (p + 1) % 4, projected_points)
-        connect_points(screen, screen_config.stroke_color, p + 4, ((p + 1) % 4) + 4, projected_points)
-        connect_points(screen, screen_config.stroke_color, p, (p + 4), projected_points)
+    for i in range(4):
+        connect_points(screen, screen_config.stroke_color, 0, i, (i + 1) % 4, projected_points)
+        connect_points(screen, screen_config.stroke_color, 0, i + 4, ((i + 1) % 4) + 4, projected_points)
+        connect_points(screen, screen_config.stroke_color, 0, i, (i + 4), projected_points)
+
+    for i in range(4):
+        connect_points(screen, screen_config.stroke_color, 8, i, (i + 1) % 4, projected_points)
+        connect_points(screen, screen_config.stroke_color, 8, i + 4, ((i + 1) % 4) + 4, projected_points)
+        connect_points(screen, screen_config.stroke_color, 8, i, i + 4, projected_points)
+
+    for i in range(8):
+        connect_points(screen, screen_config.stroke_color, 0, i, i + 8, projected_points)
 
     pygame.display.update()
