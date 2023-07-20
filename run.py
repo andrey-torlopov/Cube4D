@@ -25,7 +25,6 @@ screen_config.angle_x = 10
 points = initialize_points()
 projected_points = initialize_projected_points(points)
 
-is_animating = True
 while True:
     clock.tick(screen_config.fps)
     screen.fill(screen_config.black)
@@ -34,11 +33,6 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             exit()
-
-    if is_animating:
-        screen_config.inc_angle_x()
-        screen_config.inc_angle_y()
-        screen_config.inc_angle_z()
 
     keys = pygame.key.get_pressed()
     if keys[pygame.K_r]:
@@ -62,13 +56,19 @@ while True:
     if keys[pygame.K_e]:
         screen_config.inc_angle_z()
         is_animating = False
+    if keys[pygame.K_z]:
+        screen_config.inc_scale()
+        is_animating = False
+    if keys[pygame.K_x]:
+        screen_config.dec_scale()
+        is_animating = False
 
     # Drawining
     i = 0
     for point in points:
         xy_points = process_points(
             point,
-            screen_config.anglesXYZ,
+            screen_config.angles,
             screen_config.scale,
             circle_pos,
             screen_config.distance
@@ -76,11 +76,11 @@ while True:
 
         projected_points[i] = xy_points
         i += 1
-        pygame.draw.circle(screen, screen_config.background, xy_points, 5)
+        pygame.draw.circle(screen, screen_config.stroke_color, xy_points, 5)
 
     for p in range(4):
-        connect_points(screen, screen_config.background, p, (p + 1) % 4, projected_points)
-        connect_points(screen, screen_config.background, p + 4, ((p + 1) % 4) + 4, projected_points)
-        connect_points(screen, screen_config.background, p, (p + 4), projected_points)
+        connect_points(screen, screen_config.stroke_color, p, (p + 1) % 4, projected_points)
+        connect_points(screen, screen_config.stroke_color, p + 4, ((p + 1) % 4) + 4, projected_points)
+        connect_points(screen, screen_config.stroke_color, p, (p + 4), projected_points)
 
     pygame.display.update()

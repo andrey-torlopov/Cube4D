@@ -4,24 +4,23 @@ from point import Point
 def initialize_points() -> list[Point]:
     points = []
 
-    points.append(Point(-0.5, -0.5, -0.5))
-    points.append(Point(0.5, -0.5, -0.5))
-    points.append(Point(0.5, 0.5, -0.5))
-    points.append(Point(-0.5, 0.5, -0.5))
+    points.append(Point(-1, -1, -1, -1))
+    points.append(Point(1, -1, -1, -1))
+    points.append(Point(1, 1, -1, -1))
+    points.append(Point(-1, 1, -1, -1))
+    points.append(Point(-1, -1, 1, -1))
+    points.append(Point(1, -1, 1, -1))
+    points.append(Point(1, 1, 1, -1))
+    points.append(Point(-1, 1, 1, -1))
 
-    points.append(Point(-0.5, -0.5, 0.5))
-    points.append(Point(0.5, -0.5, 0.5))
-    points.append(Point(0.5, 0.5, 0.5))
-    points.append(Point(-0.5, 0.5, 0.5))
-
-    # points.append(Point(-1, -1, 1))
-    # points.append(Point(1, -1, 1))
-    # points.append(Point(1, 1, 1))
-    # points.append(Point(-1, 1, 1))
-    # points.append(Point(-1, -1, -1))
-    # points.append(Point(1, -1, -1))
-    # points.append(Point(1, 1, -1))
-    # points.append(Point(-1, 1, -1))
+    points.append(Point(-1, -1, -1, 1))
+    points.append(Point(1, -1, -1, 1))
+    points.append(Point(1, 1, -1, 1))
+    points.append(Point(-1, 1, -1, 1))
+    points.append(Point(-1, -1, 1, 1))
+    points.append(Point(1, -1, 1, 1))
+    points.append(Point(1, 1, 1, 1))
+    points.append(Point(-1, 1, 1, 1))
 
     return points
 
