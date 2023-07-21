@@ -4,7 +4,7 @@ class ScreenConfig:
                  title: str = "4D cube",
                  rotate_speed: float = 0.02,
                  stroke_color: tuple[int, int, int] = (255, 255, 255),
-                 scale: float = 100,
+                 scale: float = 200,
                  min_scale: float = 100,
                  max_scale: float = 300,
                  angle_x: float = 0,
